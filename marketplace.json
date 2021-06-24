@@ -1,7 +1,7 @@
   
 {
     "app_name": "Online Arcade",
-    "description": "World`s first Active-Active Geo-Distributed* Multiplayer top-down arcade shooter. App is made to showcase Redis and Redis Labs modules and their capabilities. This game is literally built on Redis!",
+    "description": "World`s first Active-Active Geo-Distributed* Multiplayer top-down arcade shooter using RedisGears and RediSearch"
     "rank": "62",
     "type": "Full App",
     "contributed_by": "Community",
