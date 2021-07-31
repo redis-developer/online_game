@@ -6,7 +6,8 @@
     "type": "Full App",
     "contributed_by": "Community",
     "repo_url": "https://github.com/redis-developer/online_game",
-    "download_url": "https://github.com/redis-developer/online_game/archive/refs/heads/main.zip",
+   "preview_image_url": "https://raw.githubusercontent.com/redis-developer/online_game/master/images/app_preview_image.png", 
+   "download_url": "https://github.com/redis-developer/online_game/archive/refs/heads/main.zip",
     "hosted_url": "",
     "quick_deploy": "false",
     "deploy_buttons": [
