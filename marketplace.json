@@ -25,7 +25,7 @@
     "redis_modules": ["RedisGears", "RediSearch"],
     "app_image_urls": [
     ],
-    "youtube_url": "https://www.youtube.com/watch?v=Bv3i4peidow",
+    "youtube_url": "https://www.youtube.com/watch?v=EOwTOVoIEp4",
     "special_tags": ["CRDB"],
     "verticals": [],
     "markdown": "https://raw.githubusercontent.com/redis-developer/online_game/main/README.md"
