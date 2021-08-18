@@ -27,6 +27,6 @@
     ],
     "youtube_url": "https://www.youtube.com/watch?v=EOwTOVoIEp4",
     "special_tags": ["CRDB"],
-    "verticals": [],
+    "verticals": ["Gaming"],
     "markdown": "https://raw.githubusercontent.com/redis-developer/online_game/main/README.md"
 }
