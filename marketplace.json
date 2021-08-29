@@ -2,7 +2,7 @@
 {
     "app_name": "Online Arcade",
     "description": "World`s first Active-Active Geo-Distributed* Multiplayer top-down arcade shooter using RedisGears and RediSearch",
-    "rank": "69",
+    "rank": 47,
     "type": "Full App",
     "contributed_by": "Community",
     "repo_url": "https://github.com/redis-developer/online_game",
