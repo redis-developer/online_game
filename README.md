@@ -1,6 +1,5 @@
 # Active-Active Geo-Distributed Multiplayer top-down arcade shooter
 
-[Redis Labs "Build on Redis" 2021 hackathon](https://hackathons.redislabs.com/hackathons/build-on-redis-hackathon) participation project.
 
 World`s first Active-Active Geo-Distributed* Multiplayer top-down arcade shooter. App is made to showcase Redis and Redis Labs modules and their capabilities. This game is literally built on Redis!** 
 
@@ -16,12 +15,13 @@ Join the arena, avoid projectiles by moving around and dominate others by landin
 
 
 ## How it Works?
-[Video Explanation of redis and Redis Gears functions](https://youtu.be/pu9yTTGozFI)
+[Video Explanation of redis and Redis Gears functions](https://www.youtube.com/watch?v=EOwTOVoIEp4)
+
 ### Architecture
 
-![architecture_1](https://github.com/VilksJanis/online_game/blob/main/docs/game_data_loop.png?raw=true)
-![architecture_2](https://github.com/VilksJanis/online_game/blob/main/docs/redis_player_commands.png?raw=true)
-![architecture_3](https://github.com/VilksJanis/online_game/blob/main/docs/redis_database_setup.png?raw=true)
+![architecture_1](https://github.com/redis-developer/online_game/blob/main/docs/game_data_loop.png?raw=true)
+![architecture_2](https://github.com/redis-developer/online_game/blob/main/docs/redis_player_commands.png?raw=true)
+![architecture_3](https://github.com/redis-developer/online_game/blob/main/docs/redis_database_setup.png?raw=true)
 
 **Application stack consists of three main components:**
 * JavaScript client:
