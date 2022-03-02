@@ -4,7 +4,7 @@
 # daemonize while registering necessary redis gears functions before container start.
 redis-server --daemonize yes \
              --loadmodule /usr/lib/redis/modules/redisearch.so \
-             --loadmodule /var/opt/redislabs/lib/modules/redisgears.so \
+             --loadmodule /usr/lib/redis/modules/redisgears.so \
              PythonHomeDir /opt/redislabs/lib/modules/python3 && sleep 1
 
 # todo: persist it in the image instead of calling it here:
@@ -25,5 +25,5 @@ redis-cli shutdown
 # Start server normally
 redis-server \
     --loadmodule /usr/lib/redis/modules/redisearch.so \
-    --loadmodule /var/opt/redislabs/lib/modules/redisgears.so \
+    --loadmodule /usr/lib/redis/modules/redisgears.so \
     PythonHomeDir /opt/redislabs/lib/modules/python3
