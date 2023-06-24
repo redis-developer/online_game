@@ -1,28 +1,28 @@
-  
+
 {
     "app_name": "Online Arcade",
-    "description": "World`s first Active-Active Geo-Distributed* Multiplayer top-down arcade shooter using RedisGears and RediSearch",
+    "description": "World`s first Active-Active Geo-Distributed* Multiplayer top-down arcade shooter using Redis Search and Triggers",
     "rank": 59,
     "type": "Full App",
     "contributed_by": "Community",
     "repo_url": "https://github.com/redis-developer/online_game",
-   "preview_image_url": "https://raw.githubusercontent.com/redis-developer/online_game/master/images/app_preview_image.png", 
+   "preview_image_url": "https://raw.githubusercontent.com/redis-developer/online_game/master/images/app_preview_image.png",
    "download_url": "https://github.com/redis-developer/online_game/archive/refs/heads/main.zip",
     "hosted_url": "",
     "quick_deploy": "false",
     "deploy_buttons": [
         {
-            "heroku": "https://heroku.com/deploy?template=https://github.com/redis-developer/online_game.git" 
+            "heroku": "https://heroku.com/deploy?template=https://github.com/redis-developer/online_game.git"
         },
         {
-            "Google": "https://deploy.cloud.run/?git_repo=https://github.com/redis-developer/online_game.git" 
+            "Google": "https://deploy.cloud.run/?git_repo=https://github.com/redis-developer/online_game.git"
         }
     ],
- 
+
     "language": ["Python", "JavaScript"],
     "redis_commands": ["XADD", "PUBLISH", "HSET", "HGET", "HGETALL", "HINCRBY", "HDEL", "EXPIRE", "RG.PYEXECUTE", "RG.DUMPREGISTRATIONS", "RG.TRIGGER", "FT.CREATE", "FT.SEARCH"],
-    "redis_features": [],
-    "redis_modules": ["RedisGears", "RediSearch"],
+    "redis_use_cases": [],
+    "redis_features": ["Triggers and Functions", "Search and Query"],
     "app_image_urls": [
     ],
     "youtube_url": "https://www.youtube.com/watch?v=EOwTOVoIEp4",
