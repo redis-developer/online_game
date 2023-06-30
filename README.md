@@ -1,9 +1,9 @@
 # Active-Active Geo-Distributed Multiplayer top-down arcade shooter
 
 
-World`s first Active-Active Geo-Distributed* Multiplayer top-down arcade shooter. App is made to showcase Redis and Redis Labs modules and their capabilities. This game is literally built on Redis!** 
+World`s first Active-Active Geo-Distributed* Multiplayer top-down arcade shooter. App is made to showcase Redis and Redis modules and their capabilities. This game is literally built on Redis!**
 
-*Fully supporting Active-Active Geo-Distributed redis infrastructure once deployed using Redis Labs deployments.
+*Fully supporting Active-Active Geo-Distributed redis infrastructure once deployed using Redis deployments.
 
 **Most of game event interactions are handled by calling RedisGears functions.
 
@@ -34,7 +34,7 @@ Join the arena, avoid projectiles by moving around and dominate others by landin
     - Ensures User -> Redis -> User event communication;
 * Redis:
     - Uses RedisGears to define game functions (functionality);
-    - Uses RediSearch to enable robust querying experience;
+    - UsesRedis Searchto enable robust querying experience;
     - Stores game state (enables data decoupling from node.js backend);
     - Validates user inputs (using RedisGears functions);
     - Provides Game API (again, RedisGears).
@@ -54,7 +54,7 @@ Join the arena, avoid projectiles by moving around and dominate others by landin
     - Triggered by calling `RG.TRIGGER create_new_user p1_uid playername '' secret123`;
     - returns `user_id`;
 - `find_game` (CommandReader, optional: [`game_id`]):
-    - If game_id provided then executes `FT.SEARCH` (see RediSearch bellow);
+    - If game_id provided then executes `FT.SEARCH` (seeRedis Searchbellow);
     - If game not found then trigger `create_new_game`;
     - Triggered by calling `RG.TRIGGER find_game p1_uid`;
     - returns `game_id`;
@@ -72,7 +72,7 @@ Join the arena, avoid projectiles by moving around and dominate others by landin
     - Executes three (`HGET`) calls to determine if user is a part of the game instance;
     - returns `game_id`;
 - `player_actions` (StreamReader, args: [`action`, `action_args`]):
-    - Parses an event received from the user; 
+    - Parses an event received from the user;
     - Adds a state to `game_states` stream (`XADD`);
     - Publishes state change to subscribers (`PUBLISH`);
     - Triggered by calling `XADD player_actions:g1_gid action p action_args "10,100,0"`.
@@ -89,7 +89,7 @@ client message event handler (`MESSAGE_EVENT_HANDLERS`):
 - `p` (pose) args: [`user_id`, `x`, `y`, `orientation`]; explanation: client receives a `user_id` position update;
 - `c`(click) args: [`user_id`, `x` (where it was clicked at), `y` (where it was clicked at), angle (from the player position to click position)]; explanation: client receives `user_id` click event
 - `r` (respawn) args: [`user_id`, `x`, `y`]; explanation: client receives `user_id` has respawned;
-- `l` (leave) args: [`user_id`]; explanation: client receives `user_id` has left the game; 
+- `l` (leave) args: [`user_id`]; explanation: client receives `user_id` has left the game;
 - `j` (join) args: [`user_id`, `x`, `y`]; explanation: client receives `user_id` has joined the game, and `user_id` has spawned in the (`x`, `y`) position
 - `uid` (user id) args: [`is_valid`]; explanation: client receives the response weather it is possible to find 'log the user in';
 - `gid` (game id) args: [`is_valid`]; explanation: client receives if the user is part of the game (is user authorized)
@@ -100,15 +100,15 @@ websocket server event handler (`MESSAGE_EVENT_HANDLERS`):
 - `p` (pose) args: [`socket`, `x`, `y`, `orientation`]; explanation: server receives `user_id` position update;
 - `c`(click) args: [`socket`, `x` (where it was clicked at), `y` (where it was clicked at), angle (from the player position to click position)]; explanation: server receives `user_id` click event;
 - `r` (respawn) args: [`socket`, `x`, `y`] ; explanation: server receives respawn request;
-- `l` (leave) args: [`socket`]; explanation: server receives leave event; 
+- `l` (leave) args: [`socket`]; explanation: server receives leave event;
 - `j` (join) args: [`socket`, `user_id`, `secret`]; explanation: server receives join request, and authorizes the user
 - `uid` (user id) args: [`socket`]; explanation: server receives `user id`;
 - `hit` args: [`socket`, `enemy_id`]; explanation: server receives hit event, and validates if it's possilbe;
 
-## RediSearch
-**RediSearch indexes are registered on container startup in the `redis/start_redis.sh`**
+## Redis Search
+**Redis Search indexes are registered on container startup in the `redis/start_redis.sh`**
 
-Created Redis Search indexes: 
+Created Redis Search indexes:
 ```
 FT.CREATE GAME ON HASH PREFIX 1 GAME: SCHEMA owner TEXT secret TEXT private NUMERIC SORTABLE playercount NUMERIC SORTABLE
 
@@ -121,7 +121,7 @@ FT.SEARCH "GAME" "(@playercount:[0 1000])" SORTBY playercount DESC LIMIT 0 1
 ```
 
 
-## Data 
+## Data
 
 ## Running locally
 
@@ -154,7 +154,7 @@ Try removing the redis dump.rdb located in `./redis/redis_data/dump.rdb`.
 ```
 rm redis/redis_data/dump.rdb
 ```
-or 
+or
 
 ```
 sudo rm redis/redis_data/dump.rdb
@@ -168,7 +168,7 @@ docker-compose up --build
 
 **Other troubleshooting**
 
-Perhaps ports `8080` or `8082` are already registered. You can change port mapping in `docker-compose.yaml` to, for example, `8081:8080` and `8083:8002`. 
+Perhaps ports `8080` or `8082` are already registered. You can change port mapping in `docker-compose.yaml` to, for example, `8081:8080` and `8083:8002`.
 
 ```
   backend:
@@ -177,7 +177,7 @@ Perhaps ports `8080` or `8082` are already registered. You can change port mappi
       context: .
     environment:
       - NODE_ENV=development
-    volumes: 
+    volumes:
       - ./game_conf.json:/game_config/game_conf.json
     ports:
       - 8080:8080
@@ -195,7 +195,7 @@ Run following commands to clean up your running environment.
 docker-compose down
 rm redis/redis_data/dump.rdb
 ```
-or 
+or
 
 ```
 docker-compose down
